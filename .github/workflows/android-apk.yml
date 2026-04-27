@@ -9,6 +9,12 @@ on:
 jobs:
   build-apk:
     runs-on: ubuntu-latest
+    env:
+      VITE_ADMOB_ANDROID_APP_ID: ${{ secrets.VITE_ADMOB_ANDROID_APP_ID }}
+      VITE_ADMOB_ANDROID_BANNER_ID: ${{ secrets.VITE_ADMOB_ANDROID_BANNER_ID }}
+      VITE_ADMOB_ANDROID_TEST_MODE: ${{ vars.VITE_ADMOB_ANDROID_TEST_MODE }}
+      VITE_ADMOB_TEST_DEVICE_IDS: ${{ vars.VITE_ADMOB_TEST_DEVICE_IDS }}
+      VITE_ADMOB_DEBUG_GEOGRAPHY: ${{ vars.VITE_ADMOB_DEBUG_GEOGRAPHY }}
 
     steps:
       - name: Checkout

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ref, set } from 'firebase/database';
 import { db } from './firebase';
 import { useAuth } from './context/AuthContext';
+import { hideBottomBanner, showBottomBanner } from './services/admob';
 
 import AuthPage       from './components/Auth/AuthPage';
 import ChatList       from './components/Chat/ChatList';
@@ -38,6 +39,18 @@ export default function App() {
       window.removeEventListener('focus', offFocus);
     };
   }, [user]);
+
+  useEffect(() => {
+    const shouldShowBanner = Boolean(user && userData && !activeChat && !publicOpen);
+
+    if (!shouldShowBanner) {
+      hideBottomBanner();
+      return undefined;
+    }
+
+    showBottomBanner().catch(() => {});
+    return undefined;
+  }, [user, userData, activeChat, publicOpen, tab]);
 
   /* ── Splash / Loading ─────────────────────────────────── */
   if (loading) {
@@ -87,31 +100,31 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      {/* Content */}
-      <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-        {tab === 'chats' && (
-          <ChatList
-            onOpenChat={openChat}
-            onOpenPublic={() => setPublicOpen(true)}
-          />
-        )}
-        {tab === 'contacts' && <Contacts onOpenChat={openChat} />}
-        {tab === 'settings' && <Settings />}
-      </div>
+      <div className="app-main">
+        <div className="app-content">
+          {tab === 'chats' && (
+            <ChatList
+              onOpenChat={openChat}
+              onOpenPublic={() => setPublicOpen(true)}
+            />
+          )}
+          {tab === 'contacts' && <Contacts onOpenChat={openChat} />}
+          {tab === 'settings' && <Settings />}
+        </div>
 
-      {/* Bottom Navigation */}
-      <nav className="bottom-nav">
-        {TABS.map(({ id, label, icon }) => (
-          <button
-            key={id}
-            className={`nav-item ${tab === id ? 'active' : ''}`}
-            onClick={() => setTab(id)}
-          >
-            <span className="msi">{icon}</span>
-            <span className="nav-label">{label}</span>
-          </button>
-        ))}
-      </nav>
+        <nav className="bottom-nav" aria-label="Navigasi utama">
+          {TABS.map(({ id, label, icon }) => (
+            <button
+              key={id}
+              className={`nav-item ${tab === id ? 'active' : ''}`}
+              onClick={() => setTab(id)}
+            >
+              <span className="msi">{icon}</span>
+              <span className="nav-label">{label}</span>
+            </button>
+          ))}
+        </nav>
+      </div>
     </div>
   );
 }

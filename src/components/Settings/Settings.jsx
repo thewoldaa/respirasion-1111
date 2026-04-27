@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../context/ToastContext';
+import { getAdMobStatus, openAdPrivacyOptions } from '../../services/admob';
 import Avatar from '../UI/Avatar';
 
 export default function Settings() {
@@ -9,6 +10,7 @@ export default function Settings() {
   const [editName,  setEditName]  = useState(false);
   const [newName,   setNewName]   = useState('');
   const [saving,    setSaving]    = useState(false);
+  const adStatus = getAdMobStatus();
 
   async function saveName() {
     const n = newName.trim();
@@ -23,6 +25,17 @@ export default function Settings() {
       setEditName(false);
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function handleAdPrivacy() {
+    try {
+      const opened = await openAdPrivacyOptions();
+      if (!opened) {
+        toast('Opsi privasi iklan belum tersedia di perangkat ini', 'error');
+      }
+    } catch {
+      toast('Panel privasi iklan gagal dibuka', 'error');
     }
   }
 
@@ -158,6 +171,37 @@ export default function Settings() {
             <span className="setting-chevron msi msi-sm">chevron_right</span>
           </div>
         </div>
+
+        {adStatus.enabled && (
+          <>
+            <div className="section-label">Monetisasi</div>
+            <div className="setting-section" style={{ marginBottom: 'var(--sp-md)' }}>
+              <div className="setting-row" style={{ cursor: 'default' }}>
+                <span className="setting-row-icon msi msi-sm">campaign</span>
+                <div className="setting-row-info">
+                  <div className="setting-row-label">Banner AdMob</div>
+                  <div className="setting-row-sub">
+                    {adStatus.testMode
+                      ? 'Mode test aktif. Ganti App ID dan Banner ID untuk mulai monetisasi.'
+                      : 'Iklan bawah aktif untuk layar utama Android.'}
+                  </div>
+                </div>
+              </div>
+              <button
+                className="setting-row"
+                onClick={handleAdPrivacy}
+                style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'left' }}
+              >
+                <span className="setting-row-icon msi msi-sm">shield</span>
+                <div className="setting-row-info">
+                  <div className="setting-row-label">Privasi Iklan</div>
+                  <div className="setting-row-sub">Kelola consent dan preferensi iklan</div>
+                </div>
+                <span className="setting-chevron msi msi-sm">chevron_right</span>
+              </button>
+            </div>
+          </>
+        )}
 
         {/* Logout */}
         <button
