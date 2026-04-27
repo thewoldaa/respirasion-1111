@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Respirasion</string>
-    <string name="title_activity_main">Respirasion</string>
+    <string name="app_name">Obrolan</string>
+    <string name="title_activity_main">Obrolan</string>
     <string name="package_name">com.respirasion.chat1111</string>
     <string name="custom_url_scheme">com.respirasion.chat1111</string>
 </resources>

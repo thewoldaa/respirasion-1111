@@ -170,7 +170,7 @@ export default function Settings() {
         </button>
 
         <p style={{ textAlign: 'center', fontSize: 11, color: 'var(--outline)' }}>
-          Respirasion v1.1.0 Android-ready
+          Obrolan v1.1.1 Android-ready
         </p>
       </div>
     </div>

@@ -1,16 +1,14 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="512" height="512" rx="132" fill="url(#bg)" />
-  <rect x="114" y="92" width="284" height="328" rx="96" fill="white" fill-opacity="0.18" />
-  <rect x="138" y="116" width="236" height="280" rx="78" fill="white" />
-  <circle cx="256" cy="221" r="46" fill="#003EC7" />
-  <rect x="208" y="278" width="96" height="18" rx="9" fill="#003EC7" />
-  <rect x="194" y="313" width="124" height="18" rx="9" fill="#5A6E8D" />
-  <path d="M118 230C118 154.337 179.337 93 255 93" stroke="#D7E3FF" stroke-width="26" stroke-linecap="round"/>
-  <path d="M394 230C394 154.337 332.663 93 257 93" stroke="#D7E3FF" stroke-width="26" stroke-linecap="round"/>
+  <path d="M132 168C132 129.34 163.34 98 202 98H310C348.66 98 380 129.34 380 168V256C380 294.66 348.66 326 310 326H238L180 378V326H202C163.34 326 132 294.66 132 256V168Z" fill="white"/>
+  <circle cx="208" cy="210" r="16" fill="#0E4ED8"/>
+  <circle cx="256" cy="210" r="16" fill="#0E4ED8"/>
+  <circle cx="304" cy="210" r="16" fill="#0E4ED8"/>
+  <path d="M172 148C172 131.431 185.431 118 202 118H310C326.569 118 340 131.431 340 148V158H172V148Z" fill="#D9E5FF"/>
   <defs>
-    <linearGradient id="bg" x1="86" y1="58" x2="433" y2="457" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0044DB" />
-      <stop offset="1" stop-color="#30A5FF" />
+    <linearGradient id="bg" x1="68" y1="56" x2="430" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E4ED8" />
+      <stop offset="1" stop-color="#38B6FF" />
     </linearGradient>
   </defs>
 </svg>

@@ -53,7 +53,7 @@ function Login({ onSwitch }) {
         <div className="auth-logo-wrap">
           <span className="msi auth-logo-icon">wifi_tethering</span>
         </div>
-        <h1 className="auth-app-name">Respirasion</h1>
+        <h1 className="auth-app-name">Obrolan</h1>
         <p className="auth-tagline">Masuk untuk melanjutkan ke jaringan komunikasi kamu.</p>
       </div>
 
@@ -146,7 +146,7 @@ function Register({ onSwitch }) {
         <div className="auth-logo-wrap">
           <span className="msi auth-logo-icon">wifi_tethering</span>
         </div>
-        <h1 className="auth-app-name">Respirasion</h1>
+        <h1 className="auth-app-name">Obrolan</h1>
         <p className="auth-tagline">Buat akun baru — ID 6-digit otomatis dibuat.</p>
       </div>
 

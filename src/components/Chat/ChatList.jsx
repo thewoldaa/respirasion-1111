@@ -47,7 +47,7 @@ export default function ChatList({ onOpenChat, onOpenPublic }) {
         <div className="avatar avatar-40" style={{ background: 'var(--secondary-container)', color: 'var(--on-secondary-container)', cursor: 'pointer' }}>
           {userData?.initials || '?'}
         </div>
-        <span className="topbar-title">Respirasion</span>
+        <span className="topbar-title">Obrolan</span>
         <button className="topbar-icon">
           <span className="msi msi-sm">search</span>
         </button>
