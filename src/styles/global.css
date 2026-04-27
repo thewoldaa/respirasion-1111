@@ -100,7 +100,7 @@ html, body, #root {
 
 body {
   font-family: var(--font);
-  background: #e8eaed;
+  background: linear-gradient(180deg, #dbe6ff 0%, #ecf2ff 32%, #eef2f6 100%);
   color: var(--on-surface);
   font-size: 14px;
   line-height: 1.5;
@@ -123,7 +123,7 @@ body {
   background: var(--surface-lowest);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 40px rgba(0,0,0,0.12);
+  box-shadow: 0 18px 48px rgba(18,34,70,0.16);
 }
 
 /* ─── Material Icons ─────────────────────────────────── */
@@ -605,6 +605,72 @@ body {
 }
 .btn-icon-round:hover { background: var(--surface-container); }
 .btn-icon-round:active { background: var(--surface-high); }
+.btn-icon-danger {
+  background: var(--error-container);
+  color: var(--error);
+}
+
+.call-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #eef4ff 0%, #f7fbff 100%);
+  border-bottom: 1px solid #dde6f7;
+  flex-wrap: wrap;
+}
+
+.call-banner-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.call-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: #ff9800;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 6px rgba(255,152,0,0.12);
+}
+
+.call-status-dot.live {
+  background: #1db954;
+  box-shadow: 0 0 0 6px rgba(29,185,84,0.12);
+}
+
+.call-banner-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.call-banner-subtitle {
+  font-size: 12px;
+  color: var(--secondary);
+}
+
+.call-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.call-banner-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  background: var(--surface-lowest);
+  border: 1px solid #dbe6f6;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+}
 
 /* ─── Settings Row ───────────────────────────────────── */
 .setting-section {

@@ -1,13 +1,14 @@
 # Respirasion
 
-Respirasion adalah aplikasi chat low-bandwidth berbasis React 18, Vite, dan Firebase. UI mobile-first dibatasi ke lebar 430px dan login hanya memakai username + password. Email Firebase dibentuk internal dari username yang sudah disanitasi.
+Respirasion adalah aplikasi chat low-bandwidth berbasis React 18, Vite, dan Firebase. Fokusnya mobile portrait untuk Android, dengan chat teks privat, saluran publik, dan voice call 2 arah real-time tanpa menyimpan rekaman.
 
 ## Fitur
 
 - Auth username + password tanpa field email di UI
 - User ID acak 6 digit saat registrasi
 - Avatar dari 2 huruf awal nama
-- Chat privat 1:1 untuk teks dan voice note
+- Chat privat 1:1 berbasis teks
+- Voice call live via WebRTC + Firebase RTDB signaling
 - Saluran publik dengan identitas `#UserID`
 - Tambah kontak lewat User ID 6 digit
 - Pengaturan nama tampil, lihat ID, dan logout
@@ -28,14 +29,13 @@ npm run build
 
 ## Environment
 
-`.env` harus berisi 7 variabel:
+`.env` yang dipakai browser:
 
 ```env
 VITE_FIREBASE_API_KEY=
 VITE_FIREBASE_AUTH_DOMAIN=
 VITE_FIREBASE_DATABASE_URL=
 VITE_FIREBASE_PROJECT_ID=
-VITE_FIREBASE_STORAGE_BUCKET=
 VITE_FIREBASE_MESSAGING_SENDER_ID=
 VITE_FIREBASE_APP_ID=
 ```
@@ -43,8 +43,8 @@ VITE_FIREBASE_APP_ID=
 ## Firebase
 
 - Realtime Database rules: `firebase-rules.json`
-- Storage rules: `storage.rules`
 - Hosting config: `firebase.json`
+- Path signaling panggilan: `calls/{chatId}`
 
 ## Catatan auth
 
@@ -53,3 +53,10 @@ Konversi username ke email internal:
 ```js
 username.toLowerCase().replace(/[^a-z0-9]/g, '') + '@respirasion.app'
 ```
+
+## Catatan voice call
+
+- Audio dikirim langsung antar pengguna
+- Tidak ada upload voice note
+- Tidak ada penyimpanan rekaman
+- Kedua pengguna harus online bersamaan

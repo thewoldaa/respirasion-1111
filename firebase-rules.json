@@ -2,29 +2,37 @@
   "rules": {
     "users": {
       "$uid": {
-        ".read":  "auth != null",
+        ".read": "auth != null",
         ".write": "auth != null && auth.uid == $uid"
       }
     },
     "userIds": {
-      ".read":  "auth != null",
-      "$id": { ".write": "auth != null" }
+      ".read": "auth != null",
+      "$id": {
+        ".write": "auth != null"
+      }
     },
     "contacts": {
       "$uid": {
-        ".read":  "auth != null && auth.uid == $uid",
+        ".read": "auth != null && auth.uid == $uid",
         ".write": "auth != null"
       }
     },
     "chats": {
       "$chatId": {
-        ".read":  "auth != null && $chatId.contains(auth.uid)",
+        ".read": "auth != null && $chatId.contains(auth.uid)",
+        ".write": "auth != null && $chatId.contains(auth.uid)"
+      }
+    },
+    "calls": {
+      "$chatId": {
+        ".read": "auth != null && $chatId.contains(auth.uid)",
         ".write": "auth != null && $chatId.contains(auth.uid)"
       }
     },
     "public": {
       "messages": {
-        ".read":  "auth != null",
+        ".read": "auth != null",
         ".write": "auth != null"
       }
     }

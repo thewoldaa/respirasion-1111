@@ -59,7 +59,7 @@ export default function Settings() {
           }}>
             <div className="conn-dot" />
             <span style={{ fontSize: 12, color: 'var(--secondary)', fontWeight: 500 }}>
-              Optimized Connection
+              Text chat + live call
             </span>
           </div>
         </section>
@@ -132,10 +132,10 @@ export default function Settings() {
         <div className="section-label">Preferensi</div>
         <div className="setting-section" style={{ marginBottom: 'var(--sp-md)' }}>
           <div className="setting-row">
-            <span className="setting-row-icon msi msi-sm">notifications</span>
+            <span className="setting-row-icon msi msi-sm">call</span>
             <div className="setting-row-info">
-              <div className="setting-row-label">Notifikasi</div>
-              <div className="setting-row-sub">Nada pesan, grup &amp; panggilan</div>
+              <div className="setting-row-label">Voice Call</div>
+              <div className="setting-row-sub">Transmisi audio langsung tanpa rekaman</div>
             </div>
             <span className="setting-chevron msi msi-sm">chevron_right</span>
           </div>
@@ -144,7 +144,7 @@ export default function Settings() {
             <div className="setting-row-info">
               <div className="setting-row-label">Data &amp; Penyimpanan</div>
               <div className="setting-row-sub" style={{ color: 'var(--tertiary-container)' }}>
-                Mode hemat data aktif
+                Mode hemat data untuk teks dan signaling aktif
               </div>
             </div>
             <span className="setting-chevron msi msi-sm">chevron_right</span>
@@ -170,7 +170,7 @@ export default function Settings() {
         </button>
 
         <p style={{ textAlign: 'center', fontSize: 11, color: 'var(--outline)' }}>
-          Respirasion v1.0.0 (Optimized Build)
+          Respirasion v1.1.0 Android-ready
         </p>
       </div>
     </div>

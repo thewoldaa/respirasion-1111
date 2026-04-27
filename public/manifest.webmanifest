@@ -1,0 +1,17 @@
+{
+  "name": "Respirasion",
+  "short_name": "Respirasion",
+  "description": "Chat low-bandwidth dengan pesan teks dan voice call 2 arah real-time tanpa rekaman.",
+  "theme_color": "#003ec7",
+  "background_color": "#eef2f6",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
